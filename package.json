@@ -1,0 +1,23 @@
+{
+  "name": "autojobboard",
+  "version": "1.0.0",
+  "description": "Automated script that checks job boards for new postings and notifies the user when relevant opportunities appear.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agirmai/Automated-Job-Board-Checker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/agirmai/Automated-Job-Board-Checker/issues"
+  },
+  "homepage": "https://github.com/agirmai/Automated-Job-Board-Checker#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.2.1"
+  }
+}
