@@ -1,1 +1,33 @@
+name: Northwestern Job Checker
+on:
+    schedule:
+        - cron: '0 * * * *'
+    workflow_dispatch:
+jobs:
+    check-jobs:
+        runs-on: ubuntu-latest
 
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.11'
+            
+            - name: Install dependencies
+              run: |
+                  pip install -r requirements.txt
+                  playwright install chromium
+                  playwright install-deps
+
+            - name: Run job checker
+              run: python main.py
+            - name: Commit updated job data
+              run: |
+                git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                git config --local user.name "github-actions[bot]"
+                git add last_job.json
+                git commit -m "Update last job ID" || echo "No changes"
+                git push
